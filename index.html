@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solovia Journeys | Travel Solo. Discover Yourself.</title>
+  <meta name="description" content="Affordable, safe, and transformative solo travel and wellness experiences across India.">
+  <meta name="theme-color" content="#8FD3FE">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --sky:#8FD3FE; --sand:#FCEEC0; --white:#FFFFFF; --charcoal:#333333; --ink:#0F2B3A;
+      --primary:#0A5E7A; --muted:#5F7C8A; --shadow:0 10px 30px rgba(10,94,122,.15);
+      --radius:16px; --radius-lg:22px; --section-pad: clamp(56px, 7vw, 120px); --container: min(1120px, 92vw);
+    }
+    /* Dark theme tokens */
+    @media (prefers-color-scheme: dark){
+      :root{ --white:#0b1a22; --charcoal:#e6eef2; --ink:#d9f0ff; --muted:#a7c0cc; --shadow:0 10px 30px rgba(0,0,0,.35); }
+    }
+    :root[data-theme="dark"]{
+      --white:#0b1a22; --charcoal:#e6eef2; --ink:#d9f0ff; --muted:#a7c0cc; --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    html{scroll-behavior:smooth} body{margin:0; color:var(--charcoal); background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(143,211,254,.25), transparent 60%),
+      linear-gradient(180deg, var(--white) 0%, var(--white) 60%, rgba(252,238,192,.35) 100%);
+      font-family:"Lora",serif; line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;}
+    h1,h2,h3,nav a,.brand{font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    h2{font-weight:700; font-size:clamp(28px,3.4vw,42px); line-height:1.15; margin:0 0 14px; color:#072938}
+    :root[data-theme="dark"] h2{color:#e8f6ff}
+    p.lead{font-size:clamp(16px,1.6vw,20px); color:#29495a; margin:0 0 28px}
+    :root[data-theme="dark"] p.lead{color:#b9d0da}
+    .container{width:var(--container); margin-inline:auto} .section{padding:var(--section-pad) 0} .grid{display:grid; gap:22px}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; background:linear-gradient(180deg,var(--sky),#6bb8ea);
+      color:#08384a; border:none; border-radius:999px; padding:14px 22px; font-weight:700; letter-spacing:.3px; box-shadow:var(--shadow);
+      cursor:pointer; text-decoration:none; transition:.25s transform,.25s box-shadow}
+    .btn:hover{transform:translateY(-2px); box-shadow:0 14px 34px rgba(10,94,122,.22)}
+    .btn-outline{background:transparent; border:2px solid var(--primary); color:var(--primary); box-shadow:none}
+    .badge{background:#FFE8A3; color:#7A5A00; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; letter-spacing:.3px}
+
+    .nav{position:sticky; top:0; z-index:1000; backdrop-filter:saturate(180%) blur(8px);
+      background:rgba(255,255,255,.75); border-bottom:1px solid rgba(15,43,58,.06)}
+    :root[data-theme="dark"] .nav{background:rgba(9,24,31,.7); border-bottom-color:rgba(255,255,255,.08)}
+    .nav .wrap{display:flex; align-items:center; justify-content:space-between; height:66px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700; color:var(--ink); text-decoration:none}
+    .brand img{height:32px; width:auto}
+    .menu{display:flex; align-items:center; gap:20px}
+    .menu a{color:var(--ink); text-decoration:none; font-weight:600; font-size:15px; padding:8px 10px; border-radius:10px}
+    .menu a:hover{background:rgba(143,211,254,.25)}
+    .hamburger{display:none; border:none; background:transparent; padding:8px}
+    .theme-toggle{border:none; background:transparent; padding:6px; margin-right:6px; border-radius:12px; cursor:pointer; color:#0F2B3A}
+    .theme-toggle:hover{background:rgba(143,211,254,.25)}
+    :root[data-theme="dark"] .theme-toggle{color:#d9f0ff}
+    @media (max-width:860px){
+      .hamburger{display:block}
+      .menu{position:fixed; inset:66px 0 auto 0; background:rgba(255,255,255,.98); border-bottom:1px solid rgba(15,43,58,.06);
+        padding:14px 18px; display:grid; gap:6px; transform:translateY(-100%); transition:.3s transform}
+      .menu.open{transform:translateY(0)}
+      .menu a{padding:14px; font-size:16px}
+    }
+
+    .hero{position:relative; overflow:hidden; padding:clamp(48px,8vw,120px) 0 var(--section-pad);
+      background:radial-gradient(800px 320px at 20% 0%, rgba(252,238,192,.6), transparent 60%),
+                 linear-gradient(180deg, rgba(143,211,254,.25), rgba(143,211,254,.08) 60%, transparent 100%);} 
+    :root[data-theme="dark"] .hero{background:
+      radial-gradient(800px 320px at 20% 0%, rgba(252,238,192,.15), transparent 60%),
+      linear-gradient(180deg, rgba(7,41,56,.8), rgba(7,41,56,.6) 60%, rgba(7,41,56,.4) 100%);}
+    .hero .inner{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center}
+    .hero h1{font-weight:700; font-size:clamp(34px,5.6vw,62px); line-height:1.06; margin:6px 0 10px; color:#ffffff; text-shadow:0 2px 8px rgba(0,0,0,.35)}
+    :root[data-theme="dark"] .hero h1{color:#ffffff}
+    .sub{font-size:clamp(16px,1.5vw,22px); color:#0b2a3a; font-weight:600; text-shadow:0 1px 0 rgba(255,255,255,.35)}
+    :root[data-theme="dark"] .sub{color:#e8f6ff; text-shadow:0 1px 0 rgba(0,0,0,.35)}
+    .hero-visual{border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow); position:relative; aspect-ratio:4/3;
+      background:linear-gradient(180deg,#dff1ff 0%, #fff 100%)}
+    .hero-visual img{width:100%; height:100%; object-fit:cover; filter:saturate(1.05) contrast(1.02); transform:scale(1.025); transition:transform 8s ease}
+    
+    .hero-visual:hover img{transform:scale(1.06)}
+    .sun-glow{position:absolute; inset:auto -20% -30% -20%; height:60%;
+      background:radial-gradient(60% 60% at 50% 0%, rgba(252,238,192,.9), rgba(252,238,192,0) 70%); pointer-events:none; animation:float 8s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+    .hero-ctas{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
+    @media (max-width:980px){.hero .inner{grid-template-columns:1fr}}
+
+    /* Floating petals */
+    .petal{position:absolute; width:18px; height:12px; background:linear-gradient(180deg,#ffe6a1,#ffd36a); border-radius:50% 50% 50% 0; opacity:.7; filter:blur(.2px); animation:drift 12s linear infinite}
+    .petal:nth-child(1){top:10%; left:5%; animation-duration:14s}
+    .petal:nth-child(2){top:20%; left:15%; transform:rotate(20deg)}
+    .petal:nth-child(3){top:8%; left:35%; transform:rotate(-30deg); animation-duration:16s}
+    @keyframes drift{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(12px) rotate(45deg)}100%{transform:translateY(0) rotate(0)}}
+
+    .about{background:linear-gradient(180deg, rgba(143,211,254,.08), rgba(252,238,192,.25))}
+    .about .cols{display:grid; grid-template-columns:1.1fr .9fr; gap:40px}
+    .pill-icons{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:16px}
+    .pill{background:#fff; border:1px solid rgba(15,43,58,.06); padding:14px 12px; text-align:center; border-radius:12px;
+      font-weight:600; color:#0e3a4d; box-shadow:0 1px 0 rgba(15,43,58,.04)}
+    .pill span{display:block; font-size:26px; margin-bottom:6px}
+    .about .photo{border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow); aspect-ratio:4/3; background:#eef7ff}
+    .about .photo img{width:100%; height:100%; object-fit:cover}
+    @media (max-width:980px){.about .cols{grid-template-columns:1fr} .pill-icons{grid-template-columns:repeat(2,1fr)}}
+
+    .services .cards{grid-template-columns:repeat(5,1fr)}
+    .card{background:#fff; border:1px solid rgba(15,43,58,.08); border-radius:16px; padding:18px;
+      box-shadow:0 1px 0 rgba(15,43,58,.04); transition:.35s transform,.35s box-shadow,.35s border-color}
+    .card:hover{transform:translateY(-6px) scale(1.02); box-shadow:0 18px 38px rgba(10,94,122,.14); border-color:rgba(10,94,122,.25)}
+    .card h3{margin:8px 0 6px; font-size:18px; color:#0a3446}
+    .card p{margin:0; color:#375b69; font-size:15px}
+    :root[data-theme="dark"] .card h3{color:#d8f3ff}
+    :root[data-theme="dark"] .card p{color:#a9c4cf}
+    .card .icon{font-size:26px}
+    @media (max-width:1080px){.services .cards{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:560px){.services .cards{grid-template-columns:1fr}}
+
+    .pricing .grid{grid-template-columns:repeat(3,1fr)}
+    .price-card{background:#fff; border:1px solid rgba(15,43,58,.08); border-radius:18px; padding:22px; position:relative; overflow:hidden;
+      box-shadow:0 1px 0 rgba(15,43,58,.04); transition:.35s transform,.35s box-shadow,.35s border-color}
+    .price-card.popular{border-color:#ffd36a; box-shadow:0 20px 44px rgba(255,172,28,.15)}
+    .price-card:hover{transform:translateY(-6px) scale(1.02); box-shadow:0 22px 44px rgba(10,94,122,.18)}
+    .price{font-family:"Poppins"; font-size:30px; margin:14px 0; color:#073245}
+    .inc{color:#375b69; font-size:15px}
+    :root[data-theme="dark"] .inc{color:#a9c4cf}
+    .price-card .ribbon{position:absolute; right:-48px; top:16px; transform:rotate(30deg); background:#ffe6a1; color:#7a5a00; padding:6px 60px; font-weight:700}
+    @media (max-width:980px){.pricing .grid{grid-template-columns:1fr}}
+
+    .contact .box{background:#fff; border:1px solid rgba(15,43,58,.08); border-radius:18px; padding:22px; box-shadow:var(--shadow)}
+    form{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    form .full{grid-column:1/-1}
+    label{display:block; font-weight:600; font-family:"Poppins"; font-size:13px; margin-bottom:6px; color:#274b5c}
+    input,textarea,select{width:100%; padding:12px 12px; border-radius:12px; border:1px solid rgba(15,43,58,.15); background:#fff; font-family:inherit;
+      transition:.2s border-color,.2s box-shadow; resize:vertical}
+    input:focus,textarea:focus,select:focus{outline:none; border-color:#6bb8ea; box-shadow:0 0 0 4px rgba(143,211,254,.25)}
+    textarea{min-height:120px} .contact .details{display:grid; gap:10px; color:#355468; margin-top:16px} .muted{color:#557486}
+    @media (max-width:720px){form{grid-template-columns:1fr}}
+
+    .newsletter{background:#fff; border:1px solid rgba(15,43,58,.08); border-radius:18px; padding:18px; box-shadow:var(--shadow)}
+    .newsletter .row{display:flex; gap:12px; flex-wrap:wrap} .newsletter input{flex:1 1 260px}
+    .testimonials .track{display:flex; gap:16px; overflow:auto; scroll-snap-type:x mandatory; padding-bottom:6px}
+    .testimonial{scroll-snap-align:start; min-width:320px; background:#fff; border:1px solid rgba(15,43,58,.08); border-radius:16px; padding:16px; box-shadow:0 1px 0 rgba(15,43,58,.04); font-size:15px; transition:.3s transform,.3s box-shadow,.3s border-color}
+    .testimonial:hover{transform:translateY(-6px) scale(1.02); box-shadow:0 18px 38px rgba(10,94,122,.14); border-color:rgba(10,94,122,.25)}
+    .testimonial strong{display:block; margin-top:10px}
+
+    footer{padding:36px 0 48px; background:linear-gradient(180deg, rgba(252,238,192,.35), rgba(143,211,254,.2))}
+    :root[data-theme="dark"] footer{background:linear-gradient(180deg, rgba(252,238,192,.08), rgba(143,211,254,.08))}
+    .foot{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap}
+    .social{display:flex; gap:12px}
+    .social a{height:36px; width:36px; display:grid; place-items:center; border-radius:50%; background:#fff; border:1px solid rgba(15,43,58,.08);
+      color:#0a556e; text-decoration:none; transition:.2s transform}
+    .social a:hover{transform:translateY(-2px)}
+
+    .reveal{opacity:0; transform:translateY(14px); transition:.6s opacity ease,.6s transform ease}
+    .reveal.show{opacity:1; transform:none}
+    .sr-only{position:absolute!important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap}
+
+    /* Focus rings */
+    :where(a,button,.card,input,select,textarea):focus-visible{outline:3px solid rgba(143,211,254,.8); outline-offset:2px; border-radius:12px}
+
+    /* Back to top button */
+    .top-btn{position:fixed; right:16px; bottom:84px; height:42px; width:42px; border-radius:50%; display:grid; place-items:center;
+      border:none; color:#08384a; background:linear-gradient(180deg,var(--sky),#6bb8ea); box-shadow:var(--shadow); cursor:pointer; opacity:0; transform:translateY(10px); transition:.25s}
+    .top-btn.show{opacity:1; transform:none}
+
+    /* Scroll progress bar */
+    .progress{position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,#6bb8ea,#ffd36a); width:0; z-index:1200}
+
+    /* Motion preferences */
+    @media (prefers-reduced-motion: reduce){
+      *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition:none !important; scroll-behavior:auto !important}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="progress" id="progress"></div>
+    <div class="container wrap">
+      <a class="brand" href="#home" aria-label="Solovia Journeys home">
+        <img src="solovia_logo.png" alt="Solovia Journeys lotus over sunrise logo" loading="eager" width="36" height="36">
+        <span>Solovia Journeys</span>
+      </a>
+      <nav aria-label="Primary">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1Zm0 14a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm8-5a1 1 0 0 1 1 1v0a1 1 0 1 1-2 0v0a1 1 0 0 1 1-1ZM4 12a1 1 0 0 1 1 1v0a1 1 0 1 1-2 0v0a1 1 0 0 1 1-1Zm13.66 6.66a1 1 0 0 1 1.41 0l1.41 1.41a1 1 0 1 1-1.41 1.41l-1.41-1.41a1 1 0 0 1 0-1.41ZM3.52 4.93a1 1 0 0 1 1.41 0L6.34 6.34a1 1 0 1 1-1.41 1.41L3.52 6.34a1 1 0 0 1 0-1.41Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </button>
+        <button id="hamburger" class="hamburger" aria-expanded="false" aria-controls="menu">
+          <span class="sr-only">Toggle menu</span>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="#0F2B3A" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div id="menu" class="menu">
+          <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#contact">Contact Us</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="container inner">
+      <div>
+        <span class="badge">India’s Solo Travel & Wellness Company</span>
+        <h1>Travel Solo. Discover Yourself.</h1>
+        <p class="sub">Affordable solo travel experiences for students and young professionals — designed to help you recharge, reflect, and reconnect.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn" aria-label="Plan your journey">Plan Your Journey</a>
+          <a href="#services" class="btn btn-outline">Explore Experiences</a>
+        </div>
+        <p class="muted" style="margin-top:10px">Built by a founder trained at Harvard Business School — with trust, safety, and thoughtful design.</p>
+      </div>
+
+      <figure class="hero-visual" aria-label="Serene sunrise over mountains">
+        <img id="heroImg" src="https://www.gstatic.com/webp/gallery/1.jpg" alt="Tranquil sunrise over mountains and lake" loading="eager" decoding="async" fetchpriority="high">
+        <div class="sun-glow" aria-hidden="true"></div>
+        <span class="petal"></span>
+        <span class="petal"></span>
+        <span class="petal"></span>
+      </figure>
+    </div>
+  </section>
+
+  
+
+  <section id="about" class="about section">
+    <div class="container cols reveal">
+      <div>
+        <h2>About Solovia Journeys</h2>
+        <p class="lead">Solovia Journeys is India’s first travel company dedicated to solo travel and mindfulness. We help students and young professionals discover themselves through affordable, safe, and transformative journeys across India — from yoga retreats to cultural adventures.</p>
+        <p><strong>Mission.</strong> To make solo travel an affordable and transformative experience that enables individuals to recharge, reflect, and reconnect with themselves.</p>
+        <p><strong>Vision.</strong> To build a global community of mindful solo travelers who find peace and personal growth through adventure, wellness, and cultural discovery.</p>
+        <p><strong>Financials.</strong> Download our latest disclosures:
+          <br>• <a href="C:\\Projects\\solovia\\Solovia_Financial_Statement_Loss.pdf" target="_blank" rel="noopener">Financial Statement (Loss)</a>
+          <br>• <a href="C:\\Projects\\solovia\\Solovia_Cash_Flow_Statement_2024_25.pdf" target="_blank" rel="noopener">Cash Flow Statement 2024–25</a>
+          <br>• <a href="C:\\Projects\\solovia\\Solovia_Balance_Sheet_2024_25.pdf" target="_blank" rel="noopener">Balance Sheet 2024–25</a>
+          <br>• <a href="C:\\Projects\\solovia\\Competitor_Analaysis.pdf" target="_blank" rel="noopener">Competitor Analysis (PDF)</a>
+        </p>
+        <div class="pill-icons" role="list" aria-label="Core values">
+          <div class="pill" role="listitem"><span>💸</span>Affordable</div>
+          <div class="pill" role="listitem"><span>🛡️</span>Safe</div>
+          <div class="pill" role="listitem"><span>🧠</span>Mindful</div>
+          <div class="pill" role="listitem"><span>🪔</span>Authentic</div>
+        </div>
+      </div>
+      <figure class="photo">
+        <img id="aboutImg" src="https://www.gstatic.com/webp/gallery/2.jpg" alt="Smiling solo traveler meditating outdoors at sunrise" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </section>
+
+  <section id="services" class="services section">
+    <div class="container reveal">
+      <h2>Experiences Designed for Reflection</h2>
+      <p class="lead">Curated, solo-friendly journeys with verified stays, local experts, and wellness-first itineraries.</p>
+      <div class="grid cards" aria-label="Service cards">
+        <article class="card" tabindex="0">
+          <img src="https://www.gstatic.com/webp/gallery/1.jpg" alt="Rishikesh mountains and river" style="width:100%; height:160px; object-fit:cover; border-radius:12px">
+          <div class="icon">🏔️</div><h3>Mindful Mountain Retreat</h3><p>5-day escape to Rishikesh or Dharamshala — yoga, meditation, and nature walks for the soul.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <img src="https://www.gstatic.com/webp/gallery/2.jpg" alt="Yoga mat in nature for digital detox" style="width:100%; height:160px; object-fit:cover; border-radius:12px">
+          <div class="icon">🧘</div><h3>Digital Detox Camp</h3><p>4-day nature immersion without gadgets — find peace through yoga, hikes, and starlit bonfires.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <img src="https://www.gstatic.com/webp/gallery/3.jpg" alt="Historic temple and cityscape" style="width:100%; height:160px; object-fit:cover; border-radius:12px">
+          <div class="icon">🕌</div><h3>Cultural Soul Trip</h3><p>Discover Udaipur, Hampi, or Varanasi — a deep dive into heritage and reflection.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <img src="https://www.gstatic.com/webp/gallery/4.jpg" alt="Vibrant urban night lights" style="width:100%; height:160px; object-fit:cover; border-radius:12px">
+          <div class="icon">🌆</div><h3>Weekend Urban Escape</h3><p>3-day solo getaways to Jaipur, Goa, or Manali for quick stress relief and inspiration.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <img src="https://www.gstatic.com/webp/gallery/5.jpg" alt="Map and travel planning" style="width:100%; height:160px; object-fit:cover; border-radius:12px">
+          <div class="icon">🗺️</div><h3>Personalized Solo Itinerary</h3><p>Custom plans with safe stays, local insights, and flexible budgets.</p>
+        </article>
+      </div>
+      <div style="margin-top:18px"><a href="#contact" class="btn">Explore All Experiences</a></div>
+    </div>
+  </section>
+
+  <section id="pricing" class="pricing section">
+    <div class="container reveal">
+      <h2>Transparent Pricing</h2>
+      <p class="lead">No hidden charges. Flexible payment options. Student-friendly.</p>
+      <div class="grid">
+        <article class="price-card">
+          <img src="https://www.gstatic.com/webp/gallery/4.jpg" alt="Weekend escape nature scene" style="width:100%; height:140px; object-fit:cover; border-radius:12px">
+          <div class="icon">🌿</div><h3>Weekend Escape</h3><p class="inc">3 Days · Stay + Guide + Transport</p><p class="price">₹7,500</p>
+          <a class="btn btn-outline" href="#contact">Request a Custom Plan</a>
+        </article>
+        <article class="price-card popular" aria-label="Most popular plan">
+          <span class="ribbon">Most Popular</span>
+          <img src="https://www.gstatic.com/webp/gallery/5.jpg" alt="Mindful retreat yoga and sunrise" style="width:100%; height:140px; object-fit:cover; border-radius:12px">
+          <div class="icon">🌄</div><h3>Mindful Retreat</h3><p class="inc">5 Days · Meals + Yoga + Stay</p><p class="price">₹12,500</p>
+          <a class="btn" href="#contact">Start Your Retreat</a>
+        </article>
+        <article class="price-card">
+          <img src="https://www.gstatic.com/webp/gallery/3.jpg" alt="Cultural journey heritage architecture" style="width:100%; height:140px; object-fit:cover; border-radius:12px">
+          <div class="icon">🌸</div><h3>Cultural Journey</h3><p class="inc">6 Days · Guided Tours + Heritage Stays</p><p class="price">₹14,500</p>
+          <a class="btn btn-outline" href="#contact">Request a Custom Plan</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact section">
+    <div class="container reveal">
+      <h2>Plan Your Journey</h2>
+      <p class="lead">Tell us what you’re seeking — we’ll craft a mindful solo experience you’ll love.</p>
+      <div class="grid" style="grid-template-columns:1.1fr .9fr; gap:20px">
+        <div class="box">
+          <form id="contactForm" novalidate>
+            <div><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your full name" required></div>
+            <div><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" required></div>
+            <div><label for="destination">Destination</label>
+              <select id="destination" name="destination" required>
+                <option value="">Select a destination</option><option>Rishikesh</option><option>Dharamshala</option><option>Udaipur</option>
+                <option>Hampi</option><option>Varanasi</option><option>Jaipur</option><option>Goa</option><option>Manali</option><option>Custom Itinerary</option>
+              </select></div>
+            <div class="full"><label for="message">Message</label><textarea id="message" name="message" placeholder="Dates, budget, and how you want to feel." required></textarea></div>
+            <div class="full"><button class="btn" type="submit">Let’s Connect</button></div>
+            <p id="formNote" class="muted" style="margin:6px 0 0" aria-live="polite"></p>
+          </form>
+        </div>
+        <aside>
+          <div class="box">
+            <div class="details">
+              <div>📧 <strong>Email:</strong> <a href="mailto:hello@soloviajournies.com">hello@soloviajournies.com</a></div>
+              <div>📞 <strong>Phone:</strong> <a href="tel:+918527437520">+91 85274 37520</a></div>
+              <div>📍 <strong>Location:</strong> New Delhi, India</div>
+              <div class="muted">Average response time: under 12 hours</div>
+            </div>
+            <!-- Location image -->
+            <div style="margin-top:14px; border-radius:12px; overflow:hidden; border:1px solid rgba(15,43,58,.08);">
+              <img src="https://www.gstatic.com/webp/gallery/4.jpg" alt="Barot railway station (representative hill railway)" style="width:100%; height:auto; display:block; object-fit:cover">
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="newsletter" style="margin-top:18px">
+        <div class="row">
+          <div style="flex:1 1 260px"><h3 style="margin:0 0 4px; font-family:Poppins; font-size:20px">Join the Solovia Tribe</h3>
+            <p class="muted" style="margin:0">Mindful travel tips, early-bird deals, and community meetups.</p></div>
+          <input id="newsletterEmail" type="email" placeholder="Email address" aria-label="Newsletter email">
+          <button class="btn" id="newsletterBtn" type="button">Subscribe</button>
+        </div>
+        <p id="newsNote" class="muted" style="margin:8px 0 0" aria-live="polite"></p>
+      </div>
+
+      <div class="testimonials" style="margin-top:18px">
+        <div class="track" aria-label="Traveler testimonials">
+          <blockquote class="testimonial">“I booked the Mindful Retreat during finals week. Five days later I came back lighter, calmer, and more focused.” <strong>— Aisha, MBA Student</strong></blockquote>
+          <blockquote class="testimonial">“As a first-time solo traveler, safety was my worry. Solovia handled everything and checked on me daily.” <strong>— Rohan, Analyst</strong></blockquote>
+          <blockquote class="testimonial">“The digital detox in Dharamshala was magic — yoga at sunrise, bonfires under a thousand stars.” <strong>— Naina, Designer</strong></blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div class="muted">© 2025 <strong>Solovia Journeys</strong>. All rights reserved. Made with 🌸 in India.</div>
+      <div class="social" aria-label="Social links">
+        <a href="#" aria-label="Instagram">⌁</a>
+        <a href="#" aria-label="YouTube">▶</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="btn" style="position:fixed; right:16px; bottom:16px; z-index:999; padding:12px 16px" aria-label="Chat on WhatsApp">💬 Chat on WhatsApp</a>
+  <button id="topBtn" class="top-btn" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script>
+    const burger=document.getElementById('hamburger'); const menu=document.getElementById('menu');
+    burger?.addEventListener('click',()=>{const open=menu.classList.toggle('open'); burger.setAttribute('aria-expanded',String(open));});
+
+    const revealables=document.querySelectorAll('.reveal');
+    const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show'); io.unobserve(e.target);}})},{threshold:.12});
+    revealables.forEach(el=>io.observe(el));
+
+    const form=document.getElementById('contactForm'); const formNote=document.getElementById('formNote');
+    form?.addEventListener('submit',(e)=>{e.preventDefault(); const data=new FormData(form); const name=data.get('name'); formNote.textContent=`Thanks ${name}! We’ll reach out within 12 hours.`; form.reset();});
+
+    const newsBtn=document.getElementById('newsletterBtn'); const newsEmail=document.getElementById('newsletterEmail'); const newsNote=document.getElementById('newsNote');
+    newsBtn?.addEventListener('click',()=>{const v=(newsEmail?.value||'').trim(); if(!v||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){newsNote.textContent='Please enter a valid email.';return;} newsNote.textContent='Welcome to the Solovia Tribe! Check your inbox for a confirmation.'; newsEmail.value='';});
+
+    // Theme toggle with system preference & persistence
+    const root=document.documentElement; const themeToggle=document.getElementById('themeToggle');
+    const themeMeta=document.querySelector('meta[name="theme-color"]');
+    const savedTheme=localStorage.getItem('theme');
+    const sysDark=window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    function setTheme(mode){
+      if(mode==='dark'){ root.setAttribute('data-theme','dark'); themeMeta?.setAttribute('content','#0b1a22'); }
+      else { root.removeAttribute('data-theme'); themeMeta?.setAttribute('content','#8FD3FE'); }
+      localStorage.setItem('theme', mode);
+    }
+    if(savedTheme){ setTheme(savedTheme); } else if(sysDark){ setTheme('dark'); }
+    themeToggle?.addEventListener('click',()=>{ const isDark=root.getAttribute('data-theme')==='dark'; setTheme(isDark?'light':'dark'); });
+
+    // Back to top button behavior
+    const topBtn=document.getElementById('topBtn');
+    const showTop=()=>{ if(window.scrollY>400){ topBtn?.classList.add('show'); } else { topBtn?.classList.remove('show'); } };
+    window.addEventListener('scroll', showTop, {passive:true}); showTop();
+    topBtn?.addEventListener('click',()=>{ window.scrollTo({top:0, behavior:'smooth'}); });
+
+    // Scroll progress bar and staggered reveals
+    const progress=document.getElementById('progress');
+    function updateProgress(){
+      const scrollTop=window.scrollY; const docHeight=document.body.scrollHeight - window.innerHeight;
+      const pct=Math.max(0, Math.min(1, scrollTop / docHeight));
+      if(progress) progress.style.width = (pct*100) + '%';
+    }
+    updateProgress(); window.addEventListener('scroll', updateProgress, {passive:true});
+
+    // Stagger animation for service and pricing cards
+    function stagger(selector){
+      const items=document.querySelectorAll(selector);
+      items.forEach((el, idx)=>{ el.style.transitionDelay = (idx*60)+'ms'; el.classList.add('reveal'); io.observe(el); });
+    }
+    stagger('.services .card');
+    stagger('.pricing .price-card');
+
+    // Robust image fallbacks for offline/blocked remote images
+    function setFallback(img, color="#e6f2fa"){
+      const canvas=document.createElement('canvas'); canvas.width=1200; canvas.height=800; const ctx=canvas.getContext('2d');
+      ctx.fillStyle=color; ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle="#0a3a4d"; ctx.font='bold 42px Poppins, sans-serif'; ctx.textAlign='center'; ctx.fillText('Solovia Journeys', 600, 360);
+      ctx.font='20px Poppins, sans-serif'; ctx.fillText('Image unavailable', 600, 410);
+      img.src=canvas.toDataURL('image/png');
+    }
+    document.getElementById('heroImg')?.addEventListener('error', (e)=> setFallback(e.target));
+    document.getElementById('aboutImg')?.addEventListener('error', (e)=> setFallback(e.target, '#f1f7ff'));
+
+    // Respect reduced motion: pause background video
+    // Removed background video; no motion handling needed here
+  </script>
+</body>
+</html>
+
